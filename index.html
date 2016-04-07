@@ -12,7 +12,7 @@ var TemplateEngine = function(tpl, data) {
     console.log(match);
     return tpl;
 }
-var template = '<p>Hello, my name is <%this.name%>. I\'m <%this.profile.age%> years old.</p>';
+var template = '<p>Hello,my name is <%<% this.name%>. I\'m <%this.profile.age%> years old.</p>';
 TemplateEngine(template);
 </script>
 </body>

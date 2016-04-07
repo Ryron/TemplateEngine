@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	   function execFn(){
+          var str = "<% name %>你好，你的预约已经成功";
+          var start = "<%",startLen = start.length;
+          var end   = "%>",endLen   =  end.length,startIndex = 0,endIndex = 0
+          var arr = [];
+          for(var i=0,len = str.length;i<len-startLen-endLen;i++){
+          	  var startTemp = str.substr(i,startLen);
+          	  var endTemp   = str.substr(i,startLen);
+          	  console.log("startTemp="+startTemp+",endTemp="+endTemp);
+          	  console.log("I="+i);
+              if(startTemp === start){
+              	 startIndex = i + startLen;
+              	 console.log("startIndex="+startIndex);
+              }
+              if(endTemp === end){
+              	  endIndex = i - endLen + 2;
+              	  console.log("endIndex="+endIndex);
+              }
+              if(endIndex > startIndex){
+              	  console.log("startIndex="+startIndex+"endIndex="+endIndex);
+              	  arr.push(str.substring(startIndex,endIndex));
+              }
+          }
+          return arr;
+	   }
+	   console.log(execFn());
+	</script>
+</body>
+</html>
