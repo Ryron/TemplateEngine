@@ -7,25 +7,23 @@
 <body>
 	<script>
 	   function execFn(){
-          var str = "<% name %>你好，你的预约已经成功";
+          var str = "<% name %>你好，你的预约<% <%1bbb %> hsdkhfks已经成功 <% bbb%>";
           var start = "<%",startLen = start.length;
           var end   = "%>",endLen   =  end.length,startIndex = 0,endIndex = 0
           var arr = [];
-          for(var i=0,len = str.length;i<len-startLen-endLen;i++){
+          for(var i=0,len = str.length;i<len;i++){
           	  var startTemp = str.substr(i,startLen);
           	  var endTemp   = str.substr(i,startLen);
-          	  console.log("startTemp="+startTemp+",endTemp="+endTemp);
-          	  console.log("I="+i);
+              var flag = false;
               if(startTemp === start){
+                 flag = true;
               	 startIndex = i + startLen;
-              	 console.log("startIndex="+startIndex);
               }
-              if(endTemp === end){
+              if(endTemp === end){ 
+                  flag = true;
               	  endIndex = i - endLen + 2;
-              	  console.log("endIndex="+endIndex);
               }
-              if(endIndex > startIndex){
-              	  console.log("startIndex="+startIndex+"endIndex="+endIndex);
+              if((endIndex > startIndex) && flag){
               	  arr.push(str.substring(startIndex,endIndex));
               }
           }
