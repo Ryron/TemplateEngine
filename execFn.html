@@ -13,6 +13,7 @@
           var arr = [];
           for(var i=0,len = str.length;i<len;i++){
           	  var startTemp = str.substr(i,startLen);
+               console.log(str[i]+"="+startTemp);
           	  var endTemp   = str.substr(i,startLen);
               var flag = false;
               if(startTemp === start){
